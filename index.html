@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Connect surplus food from parties, events, and restaurants with nearby orphanages, old age homes, and NGOs.">
+  <title>SharePlate Connect | Food Donation Network</title>
+  <link rel="stylesheet" href="styles.css?v=7">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="SharePlate Connect home">
+      <span class="brand-mark" aria-hidden="true">SP</span>
+      <span>
+        <strong>SharePlate</strong>
+        <small>Connect</small>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="sr-only">Open navigation</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <a href="#donate">Donate food</a>
+      <a href="#partners">Homes and orphanages</a>
+      <a href="#ngos">Add a recipient</a>
+      <a href="#safety">Safety</a>
+      <a class="nav-cta" href="#donate">Find a match</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <picture>
+        <img src="assets/food-donation-hero.png" alt="Volunteers sharing packed food with an elderly woman and a child near a community kitchen">
+      </picture>
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Surplus food should reach people, not dustbins</p>
+        <h1 id="hero-title">Donate extra food from parties and restaurants to nearby care homes.</h1>
+        <p class="hero-copy">SharePlate Connect helps event hosts, caterers, and restaurants contact orphanages, old age homes, and NGOs that can accept safe prepared food quickly.</p>
+        <div class="hero-actions" aria-label="Main actions">
+          <a class="btn primary" href="#donate">Donate now</a>
+          <a class="btn secondary" href="#partners">View nearby places</a>
+        </div>
+        <div class="hero-metrics" aria-label="Impact summary">
+          <span><strong>30 min</strong> average callback target</span>
+          <span><strong>3 types</strong> homes, orphanages, NGOs</span>
+          <span><strong>Safe food</strong> checklist included</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-panel" id="donate" aria-labelledby="donate-title">
+      <div class="section-heading compact">
+        <p class="eyebrow">Start a donation</p>
+        <h2 id="donate-title">Tell us what food is available.</h2>
+        <p>Use this quick form to prepare the details a nearby home or NGO needs before pickup.</p>
+      </div>
+
+      <form class="donation-form" id="donation-form">
+        <label>
+          Donor type
+          <select id="donor-type" name="donorType" required>
+            <option value="">Select one</option>
+            <option>Party or celebration</option>
+            <option>Restaurant</option>
+            <option>Caterer</option>
+            <option>Community event</option>
+          </select>
+        </label>
+
+        <label>
+          Food quantity
+          <select id="food-quantity" name="foodQuantity" required>
+            <option value="">Select meals</option>
+            <option value="25">Up to 25 meals</option>
+            <option value="75">25 to 75 meals</option>
+            <option value="150">75 to 150 meals</option>
+            <option value="250">150+ meals</option>
+          </select>
+        </label>
+
+        <label>
+          Prepared time
+          <input id="prepared-time" name="preparedTime" type="time" required>
+        </label>
+
+        <label>
+          Area or landmark
+          <input id="area" name="area" type="text" placeholder="Example: Andheri West, near station" required>
+        </label>
+
+        <div class="location-tools full-span">
+          <button class="location-btn area-btn" id="find-area" type="button">Find by area</button>
+          <div>
+            <p id="location-status" role="status" aria-live="polite">Enter your area, landmark, city, or PIN code above, then choose “Find by area.”</p>
+            <small>Area lookup uses <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>.</small>
+          </div>
+          <input id="latitude" name="latitude" type="hidden">
+          <input id="longitude" name="longitude" type="hidden">
+        </div>
+
+        <label>
+          Contact number
+          <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" required>
+        </label>
+
+        <fieldset>
+          <legend>Preferred recipient</legend>
+          <div class="choice-row">
+            <label><input type="radio" name="recipient" value="Old age home" checked> Old age home</label>
+            <label><input type="radio" name="recipient" value="Orphanage"> Orphanage</label>
+            <label><input type="radio" name="recipient" value="NGO"> NGO</label>
+          </div>
+        </fieldset>
+
+        <label class="full-span">
+          Food notes
+          <textarea id="food-notes" name="foodNotes" rows="4" placeholder="Mention veg/non-veg, packed or unpacked, pickup window, and any allergens."></textarea>
+        </label>
+
+        <button class="btn primary full-span" type="submit">Find nearby help</button>
+      </form>
+
+      <aside class="match-box" id="match-box" aria-live="polite">
+        <p class="eyebrow">Suggested match</p>
+        <h3>Complete the form to see the best nearby contact.</h3>
+        <p>Matches use recipient type, meal quantity, and the area you choose to search.</p>
+      </aside>
+    </section>
+
+    <section class="steps-section" aria-labelledby="steps-title">
+      <div class="section-heading">
+        <p class="eyebrow">How it works</p>
+        <h2 id="steps-title">A clear handoff keeps food safe and fast.</h2>
+      </div>
+      <div class="steps-grid">
+        <article>
+          <span>01</span>
+          <h3>Share food details</h3>
+          <p>Donor adds quantity, food type, prepared time, pickup area, and contact number.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Contact nearby care</h3>
+          <p>The donor calls or messages the nearest old age home, orphanage, or NGO partner.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Confirm safe pickup</h3>
+          <p>The receiver confirms capacity, packing needs, pickup person, and delivery timing.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Record impact</h3>
+          <p>Both sides note meals received, time, and any quality feedback for better future donations.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="partners-section" id="partners" aria-labelledby="partners-title">
+      <div class="section-heading">
+        <p class="eyebrow">Nearby recipients</p>
+        <h2 id="partners-title">Homes and orphanages ready to coordinate.</h2>
+        <p id="nearby-status">Enter an area and choose Find by area to order verified recipients by distance.</p>
+      </div>
+
+      <div class="filter-row" role="group" aria-label="Filter recipient cards">
+        <button class="filter-chip active" type="button" data-filter="all">All</button>
+        <button class="filter-chip" type="button" data-filter="Old age home">Old age homes</button>
+        <button class="filter-chip" type="button" data-filter="Orphanage">Orphanages</button>
+        <button class="filter-chip" type="button" data-filter="NGO">NGO pickup</button>
+      </div>
+
+      <div class="partner-grid" id="partner-grid">
+        <p>Loading recipients from MongoDB...</p>
+      </div>
+    </section>
+
+    <section class="ngo-section" id="ngos" aria-labelledby="ngo-title">
+      <div class="ngo-copy">
+        <p class="eyebrow">Recipient registration</p>
+        <h2 id="ngo-title">Add an NGO, old-age home, or orphanage.</h2>
+        <p>Recipient organizations can join SharePlate directly. After the form is submitted, the organization is immediately added to recipient searches.</p>
+        <ul class="check-list">
+          <li>Select NGO, old-age home, or orphanage</li>
+          <li>Add service area and meal capacity</li>
+          <li>Provide a coordinator contact for donations</li>
+          <li>The recipient appears in searches immediately</li>
+        </ul>
+      </div>
+
+      <form class="ngo-form" id="ngo-form">
+        <h3>Register a recipient partner</h3>
+        <label>
+          Organization type
+          <select name="organizationType" required>
+            <option value="">Select type</option>
+            <option>Old age home</option>
+            <option>Orphanage</option>
+            <option>NGO</option>
+          </select>
+        </label>
+        <label>
+          Organization name
+          <input name="organizationName" type="text" placeholder="Organization name" required>
+        </label>
+        <label>
+          Service area or locality
+          <input name="serviceArea" type="text" placeholder="Example: Andheri West, Mumbai" maxlength="160" required>
+        </label>
+        <label>
+          Full pickup address
+          <textarea name="address" rows="3" placeholder="Building name, street, area, city and state" maxlength="400" required></textarea>
+        </label>
+        <label>
+          PIN code
+          <input name="pincode" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="400058" required>
+        </label>
+        <label>
+          Landmark and directions
+          <textarea name="directionsDetails" rows="3" placeholder="Example: Main gate opposite the temple; ask for the kitchen coordinator" maxlength="500" required></textarea>
+        </label>
+        <label>
+          Google Maps or OpenStreetMap directions link
+          <input name="directionsUrl" type="url" placeholder="https://maps.google.com/..." maxlength="500" required>
+        </label>
+        <label>
+          Pickup capacity
+          <select name="pickupCapacity" required>
+            <option value="">Select capacity</option>
+            <option>Up to 50 meals</option>
+            <option>50 to 150 meals</option>
+            <option>150+ meals</option>
+          </select>
+        </label>
+        <label>
+          Coordinator phone
+          <input name="coordinatorPhone" type="tel" placeholder="+91 98765 43210" required>
+        </label>
+        <button class="btn dark" type="submit">Add recipient now</button>
+        <p class="form-note" id="ngo-status" aria-live="polite">Submitted details will be added directly to the public recipient list.</p>
+      </form>
+    </section>
+
+    <section class="safety-section" id="safety" aria-labelledby="safety-title">
+      <div class="section-heading">
+        <p class="eyebrow">Food safety</p>
+        <h2 id="safety-title">Donate only food that is safe to serve.</h2>
+      </div>
+      <div class="safety-grid">
+        <article>
+          <h3>Pack cleanly</h3>
+          <p>Use clean, covered containers. Keep veg and non-veg food separate and label allergens clearly.</p>
+        </article>
+        <article>
+          <h3>Act quickly</h3>
+          <p>Contact recipients as soon as the event ends. Share the prepared time and pickup deadline.</p>
+        </article>
+        <article>
+          <h3>Avoid risk</h3>
+          <p>Do not donate spoiled, reheated multiple times, uncovered, or half-eaten food.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a class="brand footer-brand" href="#top" aria-label="SharePlate Connect home">
+        <span class="brand-mark" aria-hidden="true">SP</span>
+        <span>
+          <strong>SharePlate</strong>
+          <small>Connect</small>
+        </span>
+      </a>
+      <p>Built to help surplus celebration food reach old age homes, orphanages, and NGOs faster.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#donate">Donate food</a>
+      <a href="#partners">Recipients</a>
+      <a href="#ngos">Add a recipient</a>
+      <a href="#safety">Safety</a>
+    </div>
+  </footer>
+
+  <script src="app.js?v=14"></script>
+</body>
+</html>
